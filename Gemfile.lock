@@ -1,3 +1,9 @@
+GIT
+  remote: https://github.com/ddollar/socksify-ruby
+  revision: 596791e76fe23fc9dc8ea25729c2ee10b5c58c6f
+  specs:
+    socksify (1.5.0)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -19,3 +25,4 @@ PLATFORMS
 DEPENDENCIES
   rest-client
   sinatra
+  socksify!
