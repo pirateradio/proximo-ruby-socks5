@@ -1,9 +1,17 @@
 require "rest-client"
 require "sinatra"
+require "uri"
+
+# proxy network traffic through a socks5 server
+require "socksify"
+proxy = URI.parse(ENV["PROXIMO_URL"].to_s)
+TCPSocket::socks_server = proxy.host
+TCPSocket::socks_port = 1080
+TCPSocket::socks_username = proxy.user
+TCPSocket::socks_password = proxy.password
 
 helpers do
   def proxy
-    RestClient.proxy = ENV["PROXIMO_URL"] if ENV["PROXIMO_URL"]
     RestClient::Resource.new(ENV["PROXY_URL"] || "https://httpbin.org")
   end
 end
