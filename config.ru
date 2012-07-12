@@ -12,7 +12,7 @@ TCPSocket::socks_password = socks.password
 
 helpers do
   def proxy
-    RestClient::Resource.new(ENV["PROXY_URL"] || "https://httpbin.org")
+    RestClient::Resource.new("http://httpbin.org")
   end
 end
 
