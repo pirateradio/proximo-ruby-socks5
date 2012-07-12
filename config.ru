@@ -4,11 +4,11 @@ require "uri"
 
 # proxy network traffic through a socks5 server
 require "socksify"
-proxy = URI.parse(ENV["PROXIMO_URL"].to_s)
-TCPSocket::socks_server = proxy.host
+socks = URI.parse(ENV["PROXIMO_URL"].to_s)
+TCPSocket::socks_server = socks.host
 TCPSocket::socks_port = 1080
-TCPSocket::socks_username = proxy.user
-TCPSocket::socks_password = proxy.password
+TCPSocket::socks_username = socks.user
+TCPSocket::socks_password = socks.password
 
 helpers do
   def proxy
